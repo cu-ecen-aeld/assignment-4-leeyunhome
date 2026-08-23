@@ -4,8 +4,8 @@
 #
 ##############################################################
 
-AESD_ASSIGNMENTS_VERSION = 'a504f7b233a067ffdbefcfbf195f269a8449c298'
-AESD_ASSIGNMENTS_SITE = 'git@github.com:cu-ecen-aeld/assignments-3-and-later-leeyunhome.git'
+AESD_ASSIGNMENTS_VERSION = a504f7bf5628d8ace769e43582ffaa9245d3fdfb
+AESD_ASSIGNMENTS_SITE = https://github.com/cu-ecen-aeld/assignments-3-and-later-leeyunhome.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
