@@ -22,12 +22,10 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 		echo "bin:x:2:2:bin:/bin:/bin/sh" >> $(TARGET_DIR)/etc/passwd ; \
 		echo "default:x:1000:1000:Default user:/home/default:/bin/sh" >> $(TARGET_DIR)/etc/passwd ; \
 	fi
-	if [ ! -f $(TARGET_DIR)/etc/shadow ]; then \
-		echo "root::10933:0:99999:7:::" > $(TARGET_DIR)/etc/shadow ; \
-		echo "daemon:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow ; \
-		echo "bin:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow ; \
-		echo "default:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow ; \
-	fi
+	echo 'root:$$6$$aesd$$7vCUVe2npOcrcMLEF6okFwsYTapf.BWvV8.6j0ZfZsYkwzSOGudZ4HUYAYPP5wYychxEZsBDR/ILY/ZxK3cGk1:10933:0:99999:7:::' > $(TARGET_DIR)/etc/shadow
+	echo "daemon:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow
+	echo "bin:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow
+	echo "default:*::0:99999:7:::" >> $(TARGET_DIR)/etc/shadow
 	if [ ! -f $(TARGET_DIR)/etc/group ]; then \
 		echo "root:x:0:" > $(TARGET_DIR)/etc/group ; \
 		echo "daemon:x:1:" >> $(TARGET_DIR)/etc/group ; \
