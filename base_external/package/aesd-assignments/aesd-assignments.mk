@@ -4,7 +4,7 @@
 #
 ##############################################################
 
-AESD_ASSIGNMENTS_VERSION = '788c0f93ea5d473496ab5bf7ba52f2ce7b753fb7'
+AESD_ASSIGNMENTS_VERSION = 'a504f7b233a067ffdbefcfbf195f269a8449c298'
 AESD_ASSIGNMENTS_SITE = 'git@github.com:cu-ecen-aeld/assignments-3-and-later-leeyunhome.git'
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
@@ -15,6 +15,10 @@ define AESD_ASSIGNMENTS_BUILD_CMDS
 endef
 
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
+	$(INSTALL) -d 0755 $(TARGET_DIR)/etc/
+	if [ ! -f $(TARGET_DIR)/etc/hosts ]; then \
+		echo -e "127.0.0.1\tlocalhost\n127.0.1.1\tbuildroot" > $(TARGET_DIR)/etc/hosts ; \
+	fi
 	$(INSTALL) -d 0755 $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/finder-app/conf/* $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/ 2>/dev/null || true
